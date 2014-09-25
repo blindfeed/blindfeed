@@ -8,13 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>Hello Picasso!!!! </h3>
-	<div>
-		<form action="in" method="Post">
-			<input type="text" name="userName">
-			<input type="text" name="password">
-			<input type="submit" value="signIn">
-		</form>
-	</div>
+	<jsp:forward page="/views/unreguser/index.jsp"></jsp:forward>
 </body>
 </html>

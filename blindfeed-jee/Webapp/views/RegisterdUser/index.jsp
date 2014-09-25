@@ -39,7 +39,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">නිවහන</a></li>
-            <li><a href="record">දායකත්වය</a></li>
+            <li><a href="${pageContext.request.contextPath}/RecordServlet">contribution</a></li>
             <li><a href="Nuserabout">විස්තර</a></li>
             <li><a href="Nusercontact">අපගැන</a></li>
             <li><a href="Nuserhelp">උදව්</a></li>

@@ -14,16 +14,26 @@
     <url-pattern>/ReturnAge</url-pattern>
     <url-pattern>/ReturnHost</url-pattern>
   </servlet-mapping>
-
-	<servlet>
-		<servlet-name>loginserv</servlet-name>
-		<servlet-class>org.picasso.controllers.LoginServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>loginserv</servlet-name>
-		<url-pattern>/loginProcess</url-pattern>
-		<url-pattern>/logoutProcess</url-pattern>
-	</servlet-mapping>
+  <servlet>
+    <servlet-name>loginserv</servlet-name>
+    <servlet-class>org.picasso.controllers.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>loginserv</servlet-name>
+    <url-pattern>/loginProcess</url-pattern>
+    <url-pattern>/logoutProcess</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Record</servlet-name>
+  	<servlet-class>org.picasso.controllers.record.RecordServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Record</servlet-name>
+  	<url-pattern>/RecordServlet</url-pattern>
+  	<url-pattern>/record</url-pattern>
+  </servlet-mapping>
+  
   <error-page>
     <error-code>404</error-code>
     <location>/error.jsp</location>
