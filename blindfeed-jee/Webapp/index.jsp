@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- this page redirected to unregister user home page  -->
 	<jsp:forward page="/views/unreguser/index.jsp"></jsp:forward>
 </body>
 </html>

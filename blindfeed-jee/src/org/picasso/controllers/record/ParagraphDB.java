@@ -18,9 +18,14 @@ public class ParagraphDB {
 	private Connection connection;
 	private ResultSet result;
 	private Statement statment;
+	private Statement statmentUpdate;
 	
 	List<Paragraph> list;
 	
+	/*this method return list of paragrpah and its id and book id 
+	 * one of them should be display for user reading
+	 * always take first one not random
+	 * */
 	public List<Paragraph> getParagraphList() throws NamingException, SQLException{
 		
 		Context initContext=new InitialContext();
@@ -28,6 +33,7 @@ public class ParagraphDB {
 		dataSource=(DataSource) envContext.lookup("jdbc/dbpool");				
 		connection=dataSource.getConnection();
 		
+	/*this query takes rows which audio flag is 0 it means paragrpah is not recorded*/
 		String query="SELECT `Paragraph_ID`,`Para_text`,`Book_Book_ID` FROM `paragraph` WHERE `Audio_Flag`=0";
 		
 		statment=connection.createStatement();
@@ -45,6 +51,13 @@ public class ParagraphDB {
 		}
 		return list;
 		
+	}
+	
+	public void updateParagraphRow(String location,int userID,int paragrpahID,int bookID) throws SQLException{
+		String sql="update `paragraph` set `AudioPara_Location`= "+location+", `Audio_Flag`=1, `User_UserID`= "+userID+" where `Paragraph_ID`= "+paragrpahID+" and `Book_Book_ID`= "+bookID+"";
+		statmentUpdate=connection.createStatement();
+		statmentUpdate.execute(sql);
+		statmentUpdate.close();
 	}
 	
 }

@@ -45,6 +45,7 @@
             <li><a href="Nuserhelp">උදව්</a></li>
           </ul>
           <% 
+          		//get the session which has already initialize that is why set false here
 				HttpSession ses=request.getSession(false);
 				String name=(String)ses.getAttribute("usr"); 
 		  %>

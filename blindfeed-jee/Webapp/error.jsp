@@ -7,6 +7,8 @@
 <title>404</title>
 </head>
 <body>
+	
+	<!-- try to get this url'http://localhost:8080/blindfeed-jee' dynamically -->
 	<h3>Sorry, 404 Page Not Found!!</h3>
 	<a href="http://localhost:8080/blindfeed-jee/">go Home</a>
 </body>

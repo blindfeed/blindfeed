@@ -4,6 +4,8 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- map to test servlet -->
   <servlet>
     <servlet-name>TestServlet</servlet-name>
     <servlet-class>org.picasso.controllers.TestServ</servlet-class>
@@ -14,6 +16,8 @@
     <url-pattern>/ReturnAge</url-pattern>
     <url-pattern>/ReturnHost</url-pattern>
   </servlet-mapping>
+  
+  <!-- map to login servlet and has more than one url pattern -->
   <servlet>
     <servlet-name>loginserv</servlet-name>
     <servlet-class>org.picasso.controllers.LoginServlet</servlet-class>
@@ -24,6 +28,7 @@
     <url-pattern>/logoutProcess</url-pattern>
   </servlet-mapping>
   
+  <!-- map to record servlet and has 2 url pattern  -->
   <servlet>
   	<servlet-name>Record</servlet-name>
   	<servlet-class>org.picasso.controllers.record.RecordServlet</servlet-class>
@@ -34,6 +39,7 @@
   	<url-pattern>/record</url-pattern>
   </servlet-mapping>
   
+  <!-- error handling page page not found error -->
   <error-page>
     <error-code>404</error-code>
     <location>/error.jsp</location>

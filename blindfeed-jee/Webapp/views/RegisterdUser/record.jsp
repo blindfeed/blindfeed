@@ -58,6 +58,8 @@ function myFunction() {
             <li><a href="Nusercontact">aboutUs</a></li>
             <li><a href="Nuserhelp">Help</a></li>
           </ul>
+          
+          <!-- get the session data using get attribute -->
           <% String user=(String)request.getAttribute("user"); %>
           <form class="navbar-form navbar-right">
              <a id="user" class="btn btn-success" href="#">you logged as <%=user %></a>
@@ -84,6 +86,7 @@ function myFunction() {
                     </div>
                     <div class="panel-body">
                         <p style="font-size: 15px;">
+                        			<!-- In this which displays the paragraph -->
 									<%String name = (String) ses.getAttribute("text");%>
 									<%=name %>
 								</p>
@@ -137,6 +140,8 @@ function myFunction() {
 		
 		<script type="text/javascript">
                   $('#record').click(function(){
+                	  
+                	  /* maximun record is 150s but it can extend as you wish */
                       $.jRecorder.record(150);
                       //alert('this is record');
                   });

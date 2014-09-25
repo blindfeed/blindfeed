@@ -6,18 +6,15 @@ import java.sql.SQLException;
 import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.sun.jndi.toolkit.url.Uri;
-
 /**
  * Servlet implementation class LoginServlet
  */
-/*@WebServlet({"/LoginServlet","/Logout"})*/
+
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -33,29 +30,42 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-        
+		/*initialize session when user log to account*/
 		HttpSession session=request.getSession();
-			
 		
+		/* this get the servelt path 
+		 * as example www.example.lk/servlet1
+		 * www.example.lk/servlet2
+		 * servlet paths are servlet1,servlet2
+		 * 
+		 * */
 		String usrpath=request.getServletPath();
 		
 		if(usrpath.equals("/loginProcess")){
-			System.out.println("hello");
-
+			
+			/*get the parameter which specified in html file */
 			String userName=request.getParameter("EMail");
 			String password=request.getParameter("Password");
 			
-			System.out.println(userName+" "+password);
-					
+			/*store username in above session this data can be retrieved in jsp page*/
 			session.setAttribute("usr", userName);
 			
-			
+			/*this class which responsible for checking valid login */
 			LoginValidator login=new LoginValidator();
+			
 			try {
+			/*this checks the login valid againt database result if 
+			 * true login found then this redirect to account
+			 * */
 				if (login.validLogin(userName, password)) {
 					RequestDispatcher rd = getServletContext().getRequestDispatcher("/views/RegisterdUser/index.jsp");
+				/*include means this request and response include to when use logged becouse every
+				 * time request and response object are different becouse stateless
+				 *  */
 			        rd.include(request, response);
 				}else{
+				/*if user login is incorrect this redirect to the login page
+				 * */
 					RequestDispatcher rd = getServletContext().getRequestDispatcher("/views/unreguser/");
 			        rd.forward(request, response);
 				}
@@ -71,7 +81,7 @@ public class LoginServlet extends HttpServlet {
 			
 			
 		}else if(usrpath.equals("/logoutProcess")){
-			System.out.println("world");
+			/*this destroy the session when user logout*/
 			session.invalidate();
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/views/unreguser/");
 	        rd.forward(request, response);

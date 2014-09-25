@@ -38,6 +38,8 @@
             <li><a href="${pageContext.request.contextPath}/help.jsp">උදව්</a></li>
             
           </ul>
+          
+          <!-- login module which executes the loginprocess servlet -->
 
   <form action="${pageContext.request.contextPath}/loginProcess" class="navbar-form navbar-right" role="form" method="post">
             <div class="form-group">
